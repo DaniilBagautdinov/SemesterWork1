@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Dao<T> {
 
-    T get(int id);
+    T get(String someString);
 
     List<T> getAll();
 

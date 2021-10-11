@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserServiceImpl implements UserService {
-    public static final UserServiceImpl userService = new UserServiceImpl();
+
     private final UserDaoImpl dao = new UserDaoImpl();
 
     @Override

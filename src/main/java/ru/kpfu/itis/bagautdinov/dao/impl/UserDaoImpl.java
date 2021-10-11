@@ -17,10 +17,35 @@ public class UserDaoImpl implements Dao<User> {
 
     private final Connection connection = PostgresConnectionHelper.getConnection();
 
-    public static final UserDaoImpl userDao = new UserDaoImpl();
-
     @Override
-    public User get(int id) {
+    public User get(String login) {
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * FROM users where login = \'"+login+"\'";
+            return executeQuery(statement, sql);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    private User executeQuery(Statement statement, String sql) {
+        try {
+            ResultSet resultSet = statement.executeQuery(sql);
+            if (resultSet.next()) {
+                return new User(
+                        resultSet.getInt("id"),
+                        resultSet.getString("first_name"),
+                        resultSet.getString("last_name"),
+                        resultSet.getString("login"),
+                        resultSet.getString("password")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 

@@ -2,6 +2,7 @@ package ru.kpfu.itis.bagautdinov.servlets;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.kpfu.itis.bagautdinov.dao.impl.UserDaoImpl;
 import ru.kpfu.itis.bagautdinov.model.User;
 import ru.kpfu.itis.bagautdinov.service.impl.UserServiceImpl;
 
@@ -17,6 +18,9 @@ public class RegistrationServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(RegistrationServlet.class);
 
+    private  final UserServiceImpl userService = new UserServiceImpl();
+    private final UserDaoImpl userDao = new UserDaoImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.sendRedirect("registration.html");
@@ -28,7 +32,11 @@ public class RegistrationServlet extends HttpServlet {
         String lastName = req.getParameter("last_name");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        UserServiceImpl.userService.save(new User(firstName, lastName, login, password));
-        resp.sendRedirect("login.html");
+        if (userDao.get(login) == null) {
+            userService.save(new User(firstName, lastName, login, password));
+            resp.sendRedirect("login.html");
+        } else {
+            resp.sendRedirect("/reg");
+        }
     }
 }
