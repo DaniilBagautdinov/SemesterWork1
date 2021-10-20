@@ -4,21 +4,21 @@ public class User {
     private int id;
     private String firstName;
     private String lastName;
-    private String login;
+    private String username;
     private String password;
 
-    public User(int id, String firstName, String lastName, String login, String password) {
+    public User(int id, String firstName, String lastName, String username, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.login = login;
+        this.username = username;
         this.password = password;
     }
 
-    public User(String firstName, String lastName, String login, String password) {
+    public User(String firstName, String lastName, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.login = login;
+        this.username = username;
         this.password = password;
     }
 
@@ -46,12 +46,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

@@ -1,7 +1,5 @@
 package ru.kpfu.itis.bagautdinov.servlets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.kpfu.itis.bagautdinov.dao.impl.UserDaoImpl;
 import ru.kpfu.itis.bagautdinov.helper.PasswordHelper;
 import ru.kpfu.itis.bagautdinov.model.User;
@@ -12,14 +10,14 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Objects;
 
-@WebServlet(name = "loginServlet", urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "loginErrorServlet", urlPatterns = "/loginerror")
+public class LoginErrorServlet extends HttpServlet {
 
     private final UserDaoImpl userDao = new UserDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect("login.ftl");
+        resp.sendRedirect("loginerror.ftl");
     }
 
     @Override

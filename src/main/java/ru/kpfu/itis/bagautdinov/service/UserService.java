@@ -1,14 +1,16 @@
 package ru.kpfu.itis.bagautdinov.service;
 
-
-
-import ru.kpfu.itis.bagautdinov.dto.UserDTO;
+import ru.kpfu.itis.bagautdinov.helper.PasswordHelper;
 import ru.kpfu.itis.bagautdinov.model.User;
 
-import java.util.List;
 
-public interface UserService {
-    List<UserDTO> getAll();
-    UserDTO get(int id);
-    void save(User user);
+public class UserService {
+
+    public static User save(User user) {
+        return new User(
+                user.getFirstName(),
+                user.getLastName(),
+                user.getUsername(),
+                PasswordHelper.encrypt(user.getPassword()));
+    }
 }

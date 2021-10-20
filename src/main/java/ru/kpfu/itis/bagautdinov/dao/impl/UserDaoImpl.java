@@ -3,25 +3,26 @@ package ru.kpfu.itis.bagautdinov.dao.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.kpfu.itis.bagautdinov.dao.Dao;
+import ru.kpfu.itis.bagautdinov.dao.UserDao;
 import ru.kpfu.itis.bagautdinov.helper.PostgresConnectionHelper;
 import ru.kpfu.itis.bagautdinov.model.User;
+import ru.kpfu.itis.bagautdinov.service.UserService;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoImpl implements Dao<User> {
+public class UserDaoImpl implements UserDao {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(UserDaoImpl.class);
 
     private final Connection connection = PostgresConnectionHelper.getConnection();
 
     @Override
-    public User get(String login) {
+    public User get(String username) {
         try {
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM users where login = \'"+login+"\'";
+            String sql = "SELECT * FROM users where username = \'"+username+"\'";
             return executeQuery(statement, sql);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -37,7 +38,7 @@ public class UserDaoImpl implements Dao<User> {
                         resultSet.getInt("id"),
                         resultSet.getString("first_name"),
                         resultSet.getString("last_name"),
-                        resultSet.getString("login"),
+                        resultSet.getString("username"),
                         resultSet.getString("password")
                 );
             }
@@ -63,7 +64,7 @@ public class UserDaoImpl implements Dao<User> {
                         resultSet.getInt("id"),
                         resultSet.getString("first_name"),
                         resultSet.getString("last_name"),
-                        resultSet.getString("login"),
+                        resultSet.getString("username"),
                         resultSet.getString("password")
                 );
                 users.add(user);
@@ -78,14 +79,14 @@ public class UserDaoImpl implements Dao<User> {
 
     @Override
     public void save(User user) {
-        String sql = "INSERT INTO users (first_name, last_name, login, password) VALUES (?, ?, ?, ?);";
-
+        String sql = "INSERT INTO users (first_name, last_name, username, password) VALUES (?, ?, ?, ?);";
+        User encryptUser = UserService.save(user);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, user.getFirstName());
-            preparedStatement.setString(2, user.getLastName());
-            preparedStatement.setString(3, user.getLogin());
-            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setString(1, encryptUser.getFirstName());
+            preparedStatement.setString(2, encryptUser.getLastName());
+            preparedStatement.setString(3, encryptUser.getUsername());
+            preparedStatement.setString(4, encryptUser.getPassword());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             LOGGER.warn("Failed to save new user.", throwables);
