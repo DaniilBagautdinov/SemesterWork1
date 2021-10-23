@@ -42,7 +42,7 @@
         </ul>
         <ul class="navbar-nav">
         <li class="nav-item">
-            <a href="/basketpage" class="nav-link ">Домашка</a>
+            <a href="/homeworkpage" class="nav-link ">Домашка</a>
         </li>
     </ul>
     <#else>

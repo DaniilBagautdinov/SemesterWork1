@@ -18,8 +18,7 @@
             <div class="card-body">
                 <h5 class="card-title">ЕГЭ - русский язык</h5>
                 <p class="card-text">Александр Долгих - научит вас писать и разговаривать</p>
-                <h5 class="card-title">1000р</h5>
-                <a href="/gamepage?id=1" class="btn btn-dark">Купить</a>
+                <a href="/" class="btn btn-dark">Посмотреть</a>
             </div>
         </div>
         <div class="card w-auto">
@@ -27,8 +26,7 @@
             <div class="card-body">
                 <h5 class="card-title">ЕГЭ - математика</h5>
                 <p class="card-text">Артур Шарафиев - жесткий математик</p>
-                <h5 class="card-title">1000р</h5>
-                <a href="/gamepage?id=1" class="btn btn-dark">Купить</a>
+                <a href="/" class="btn btn-dark">Посмотреть</a>
             </div>
         </div>
 
@@ -37,8 +35,7 @@
             <div class="card-body">
                 <h5 class="card-title">ЕГЭ - информатика</h5>
                 <p class="card-text">Виктория Ланская - изи инфа</p>
-                <h5 class="card-title">1000р</h5>
-                <a href="/gamepage?id=2" class="btn btn-dark">Купить</a>
+                <a href="/" class="btn btn-dark">Посмотреть</a>
             </div>
         </div>
     </div>
