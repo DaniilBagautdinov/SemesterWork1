@@ -25,7 +25,7 @@
             </p>
             <p class="lead">
                 <button
-                        type="submit" class="btn">Войти
+                        type="submit" class="btn btn-outline-dark btn-sm btn-block">Войти
                 </button>
             </p>
             <p class="lead">

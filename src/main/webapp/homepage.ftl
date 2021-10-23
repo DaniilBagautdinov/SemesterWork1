@@ -5,14 +5,10 @@
 </#macro>
 
 <#macro content>
-    <div class="bd-example mb-5">
-        <div id="carouselExampleControls" class="carousel slide mt-1" data-ride="carousel">
-            <div class="carousel-inner w-100 m-auto ml-2 mr-2">
-                <div class="carousel-item active">
-                    <img class="d-block w-100 rounded" src="images/homePageImages/ЕГЭKarlan.png" alt="Баннер"
-                         data-holder-rendered="true">
-                </div>
-            </div>
+    <div class="carousel-inner w-100 m-auto ml-2 mr-2">
+        <div class="carousel-item active">
+            <img class="d-block w-100 rounded" src="images/homePageImages/ЕГЭKarlan.png" alt="Баннер"
+                 data-holder-rendered="true">
         </div>
     </div>
 

@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao {
     public User get(String username) {
         try {
             Statement statement = connection.createStatement();
-            String sql = "SELECT * FROM users where username = \'"+username+"\'";
+            String sql = "SELECT * FROM users where username = \'" + username + "\'";
             return executeQuery(statement, sql);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -90,6 +90,45 @@ public class UserDaoImpl implements UserDao {
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             LOGGER.warn("Failed to save new user.", throwables);
+        }
+    }
+
+    @Override
+    public void changeFirstName(int id, String firstname) {
+        String sql = "UPDATE users SET first_name = ? WHERE id = ?;";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, firstname);
+            preparedStatement.setInt(2, id);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public void changeLastName(int id, String lastname) {
+        String sql = "UPDATE users SET last_name = ? WHERE id = ?;";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1,lastname);
+            preparedStatement.setInt(2, id);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public void changePassword(int id, String password) {
+        String sql = "UPDATE users SET password = ? WHERE id = ?;";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1,password);
+            preparedStatement.setInt(2, id);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 }

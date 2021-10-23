@@ -11,4 +11,10 @@ public interface UserDao {
     List<User> getAll();
 
     void save(User user);
+
+    void changeFirstName(int id, String firstname);
+
+    void changeLastName(int id, String lastname);
+
+    void changePassword(int id, String password);
 }
