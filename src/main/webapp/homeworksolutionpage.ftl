@@ -7,7 +7,7 @@
 <#macro content>
     <#if homeworkNow?has_content>
         <h1>${homeworkNow.title}</h1>
-        <h3>${homeworkNow.article}</h3>
+        <h4>${homeworkNow.article}</h4>
         <p class="lead">
             <a
                     href="/homeworkpage">Вернуться назад

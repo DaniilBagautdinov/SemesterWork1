@@ -13,30 +13,23 @@
     </div>
 
     <div class="card-columns m-md-auto w-100">
-        <div class="card w-auto ">
-            <img class="card-img-top m-auto" src="/images/homePageImages/Dol.jpg" alt="Кейс 1">
-            <div class="card-body">
-                <h5 class="card-title">ЕГЭ - русский язык</h5>
-                <p class="card-text">Александр Долгих - научит вас писать и разговаривать</p>
-                <a href="/" class="btn btn-dark">Посмотреть</a>
-            </div>
-        </div>
-        <div class="card w-auto">
-            <img class="card-img-top m-auto" src="/images/homePageImages/Shar.jpg" alt="Кейс 1">
-            <div class="card-body">
-                <h5 class="card-title">ЕГЭ - математика</h5>
-                <p class="card-text">Артур Шарафиев - жесткий математик</p>
-                <a href="/" class="btn btn-dark">Посмотреть</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img class="card-img-top m-auto" src="/images/homePageImages/Lan.jpg" alt="Кейс 2">
-            <div class="card-body">
-                <h5 class="card-title">ЕГЭ - информатика</h5>
-                <p class="card-text">Виктория Ланская - изи инфа</p>
-                <a href="/" class="btn btn-dark">Посмотреть</a>
-            </div>
-        </div>
+        <#if lessons??>
+            <#if lessons?has_content>
+                <#list lessons as lesson>
+                    <div class="card w-auto ">
+                        <img class="card-img-top m-auto" src="/images/homePageImages/${lesson.photoTitle}" alt="Кейс 1">
+                        <div class="card-body">
+                            <h5 class="card-title">${lesson.title}</h5>
+                            <p class="card-text">${lesson.description}</p>
+                            <#if user?has_content>
+                                <a href="/lessonpage?id=${lesson.id}" class="btn btn-dark">Посмотреть</a>
+                            <#else>
+                                <a href="/warningpage" class="btn btn-dark">Посмотреть</a>
+                            </#if>
+                        </div>
+                    </div>
+                </#list>
+            </#if>
+        </#if>
     </div>
 </#macro>

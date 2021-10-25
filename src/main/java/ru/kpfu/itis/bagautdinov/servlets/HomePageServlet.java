@@ -1,5 +1,6 @@
 package ru.kpfu.itis.bagautdinov.servlets;
 
+import ru.kpfu.itis.bagautdinov.dao.impl.LessonDaoImpl;
 import ru.kpfu.itis.bagautdinov.dao.impl.UserDaoImpl;
 
 import javax.servlet.ServletException;
@@ -11,12 +12,15 @@ import java.io.IOException;
 public class HomePageServlet extends HttpServlet {
 
     private final UserDaoImpl userDao = new UserDaoImpl();
+    private final LessonDaoImpl lessonDao = new LessonDaoImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
         Cookie[] cookies = req.getCookies();
+
+        session.setAttribute("lessons", lessonDao.getLessons());
 
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("username")) {
