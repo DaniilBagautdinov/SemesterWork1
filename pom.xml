@@ -47,5 +47,10 @@
             <version>42.2.24</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.6.0</version>
+        </dependency>
     </dependencies>
 </project>

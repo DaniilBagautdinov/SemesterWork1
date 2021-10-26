@@ -26,7 +26,6 @@ public class EditPageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstName = req.getParameter("first_name");
         String lastName = req.getParameter("last_name");
-        String username = req.getParameter("username");
         String password = req.getParameter("password");
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
@@ -41,7 +40,8 @@ public class EditPageServlet extends HttpServlet {
             userDao.changePassword(user.getId(), PasswordHelper.encrypt(password));
         }
 
-        session.setAttribute("user", user);
+        User newUser = userDao.get(user.getUsername());
+        session.setAttribute("user", newUser);
 
         resp.sendRedirect("profilepage.ftl");
     }
