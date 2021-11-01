@@ -21,7 +21,7 @@ public class LessonPageServlet extends HttpServlet {
         List<Lesson> lessons = (List<Lesson>) session.getAttribute("lessons");
 
         for (Lesson lesson : lessons) {
-            if(lesson.getId() == id) {
+            if (lesson.getId() == id) {
                 session.setAttribute("lessonNow", lesson);
             }
         }

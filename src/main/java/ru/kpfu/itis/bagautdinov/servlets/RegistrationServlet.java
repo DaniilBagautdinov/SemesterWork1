@@ -3,6 +3,7 @@ package ru.kpfu.itis.bagautdinov.servlets;
 import ru.kpfu.itis.bagautdinov.dao.impl.HomeworkDaoImpl;
 import ru.kpfu.itis.bagautdinov.dao.impl.UserDaoImpl;
 import ru.kpfu.itis.bagautdinov.model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,7 @@ public class RegistrationServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String firstName = req.getParameter("first_name");
         String lastName = req.getParameter("last_name");
         String username = req.getParameter("username");

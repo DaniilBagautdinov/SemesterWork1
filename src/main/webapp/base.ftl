@@ -28,7 +28,7 @@
             <a class="nav-link" href="#">Скидки</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/faqpage">О нас</a>
+            <a class="nav-link" href="/aboutaspage">О нас</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Отзывы</a>
@@ -41,10 +41,10 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-        <li class="nav-item">
-            <a href="/homeworkpage" class="nav-link ">Домашка</a>
-        </li>
-    </ul>
+            <li class="nav-item">
+                <a href="/homeworkpage" class="nav-link ">Домашка</a>
+            </li>
+        </ul>
     <#else>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">

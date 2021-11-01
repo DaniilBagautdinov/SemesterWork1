@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "profilePageServlet", urlPatterns = "/profilepage")
-public class ProfilePageServlet extends HttpServlet {
-
+@WebServlet(name = "aboutAsPageServlet", urlPatterns = "/aboutaspage")
+public class AboutAsPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/profilepage.ftl").forward(req, resp);
+        req.getServletContext().getRequestDispatcher("/aboutaspage.ftl").forward(req, resp);
+
     }
 }

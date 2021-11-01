@@ -2,7 +2,6 @@ package ru.kpfu.itis.bagautdinov.dao.impl;
 
 import ru.kpfu.itis.bagautdinov.dao.LessonDao;
 import ru.kpfu.itis.bagautdinov.helper.PostgresConnectionHelper;
-import ru.kpfu.itis.bagautdinov.model.Homework;
 import ru.kpfu.itis.bagautdinov.model.Lesson;
 
 import java.sql.Connection;

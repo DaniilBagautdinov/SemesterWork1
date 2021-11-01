@@ -20,7 +20,7 @@ public class HomeworkSolutionPage extends HttpServlet {
         List<Homework> homeworks = (List<Homework>) session.getAttribute("homeworks");
 
         for (Homework homework : homeworks) {
-            if(homework.getId() == id) {
+            if (homework.getId() == id) {
                 session.setAttribute("homeworkNow", homework);
             }
         }

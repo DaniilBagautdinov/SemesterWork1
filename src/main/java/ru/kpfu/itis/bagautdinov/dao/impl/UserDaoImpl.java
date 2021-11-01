@@ -1,6 +1,5 @@
 package ru.kpfu.itis.bagautdinov.dao.impl;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.kpfu.itis.bagautdinov.dao.UserDao;
@@ -110,7 +109,7 @@ public class UserDaoImpl implements UserDao {
     public void changeLastName(int id, String lastname) {
         String sql = "UPDATE users SET last_name = ? WHERE id = ?;";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1,lastname);
+            preparedStatement.setString(1, lastname);
             preparedStatement.setInt(2, id);
 
             preparedStatement.executeUpdate();
@@ -123,7 +122,7 @@ public class UserDaoImpl implements UserDao {
     public void changePassword(int id, String password) {
         String sql = "UPDATE users SET password = ? WHERE id = ?;";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1,password);
+            preparedStatement.setString(1, password);
             preparedStatement.setInt(2, id);
 
             preparedStatement.executeUpdate();

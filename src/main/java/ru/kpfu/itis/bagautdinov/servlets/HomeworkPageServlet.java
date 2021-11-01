@@ -20,7 +20,7 @@ public class HomeworkPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
-        session.setAttribute("homeworks",homeworkDao.getHomeworks(user.getId()));
+        session.setAttribute("homeworks", homeworkDao.getHomeworks(user.getId()));
 
         req.getServletContext().getRequestDispatcher("/homeworkpage.ftl").forward(req, resp);
     }

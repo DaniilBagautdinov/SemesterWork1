@@ -43,9 +43,9 @@ public class HomeworkDaoImpl implements HomeworkDao {
             while (resultSet.next()) {
                 homeworks.add(
                         new Homework(resultSet.getInt("id"),
-                        resultSet.getInt("user_id"),
-                        resultSet.getString("title"),
-                        resultSet.getString("article")));
+                                resultSet.getInt("user_id"),
+                                resultSet.getString("title"),
+                                resultSet.getString("article")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

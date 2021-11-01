@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
                 cookie.setMaxAge(100);
                 resp.addCookie(cookie);
             }
-            session.setAttribute("user",user);
+            session.setAttribute("user", user);
             resp.sendRedirect("/homepage");
 
         } else {
