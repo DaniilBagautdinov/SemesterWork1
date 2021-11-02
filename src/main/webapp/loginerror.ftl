@@ -3,11 +3,11 @@
     <title>Страница входа</title>
 </#macro>
 <#macro content>
-    <div class="lgn">
-        <h1>Авторизация</h1>
-        <h6>Введены некорректные данные</h6>
-        <h6>Повторите попытку</h6>
-        <form method="post" action="/login">
+    <form method="post" action="/loginerror" id="loginForm">
+        <div class="lgn">
+            <h1>Авторизация</h1>
+            <h6>Введены некорректные данные</h6>
+            <h6>Повторите попытку</h6>
             <p class="lead">
                 <label>
                     <input type="text" name="username" placeholder="Логин">
@@ -25,7 +25,7 @@
             </p>
             <p class="lead">
                 <button
-                        type="submit" class="btn btn-outline-dark btn-sm btn-block">Войти
+                        type="submit" class="btn btn-outline-dark btn-sm">Войти
                 </button>
             </p>
             <p class="lead">
@@ -33,6 +33,6 @@
                         href="/reg">Зарегистрироваться
                 </a>
             </p>
-        </form>
-    </div>
+        </div>
+    </form>
 </#macro>
